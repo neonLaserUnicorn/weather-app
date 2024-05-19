@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/widgets/background_widget.dart';
+import 'package:weather_app/widgets/main_weather_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,6 +23,7 @@ class HomeScreen extends StatelessWidget {
               mainColor: Colors.blue,
               secondaryColor: Colors.green,
             ),
+            MainWeatherWidget(),
           ],
         ),
       ),
