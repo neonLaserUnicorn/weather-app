@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return BlocProvider(
-                create: (context) => WeatherBloc(),
+                create: (context) => WeatherBloc()..add(GetWeather()),
                 child: const HomeScreen(),
               );
             } else {

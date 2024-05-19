@@ -15,10 +15,10 @@ class MainWeatherWidget extends StatelessWidget {
       child: BlocBuilder<WeatherBloc, WeatherState>(
         builder: (context, state) {
           if (state is WeatherSuccess) {
-            return const Column(
+            return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  FittedBox(
+                  const FittedBox(
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: BoxedIcon(
@@ -28,8 +28,8 @@ class MainWeatherWidget extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      '{con} C',
-                      style: TextStyle(
+                      '${state.weather.temperature!.celsius!.round()} °C',
+                      style: const TextStyle(
                           fontSize: 40,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
@@ -37,9 +37,9 @@ class MainWeatherWidget extends StatelessWidget {
                   ),
                   Center(
                       child: Text(
-                    '/*description*/',
-                    style: TextStyle(
-                        fontSize: 40,
+                    state.weather.weatherDescription!.toUpperCase(),
+                    style: const TextStyle(
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
                   )),
