@@ -17,9 +17,9 @@ class HomeScreen extends StatelessWidget {
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: Stack(
+        child: const Stack(
           children: [
-            const BackgroundWidget(
+            BackgroundWidget(
               mainColor: Colors.blue,
               secondaryColor: Colors.green,
             ),
