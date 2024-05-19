@@ -21,12 +21,10 @@ class MainWeatherWidget extends StatelessWidget {
             return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const FittedBox(
+                  FittedBox(
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0),
-                      child: BoxedIcon(
-                        WeatherIcons.day_cloudy,
-                      ),
+                      padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0),
+                      child: _showIcon(state),
                     ),
                   ),
                   _mainText(
@@ -48,6 +46,51 @@ class MainWeatherWidget extends StatelessWidget {
         },
       ),
     );
+  }
+
+  BoxedIcon _showIcon(WeatherSuccess state) {
+    final code = state.weather.weatherConditionCode!;
+    BoxedIcon icon = const BoxedIcon(
+      WeatherIcons.day_cloudy,
+    );
+    if (code ~/ 100 == 2) {
+      icon = const BoxedIcon(
+        WeatherIcons.thunderstorm,
+      );
+    }
+    if (code ~/ 100 == 3) {
+      icon = const BoxedIcon(
+        WeatherIcons.rain_mix,
+      );
+    }
+    if (code ~/ 100 == 5) {
+      icon = const BoxedIcon(
+        WeatherIcons.rain,
+      );
+    }
+    if (code ~/ 100 == 6) {
+      icon = const BoxedIcon(
+        WeatherIcons.snow,
+      );
+    }
+    if (code ~/ 100 == 7) {
+      icon = const BoxedIcon(
+        WeatherIcons.fog,
+      );
+    }
+    if (code ~/ 100 == 8) {
+      if (code == 800) {
+        icon = const BoxedIcon(
+          WeatherIcons.day_sunny,
+        );
+      } else {
+        icon = const BoxedIcon(
+          WeatherIcons.cloud,
+        );
+      }
+    }
+
+    return icon;
   }
 
   Center _mainText(String message, double size) {
