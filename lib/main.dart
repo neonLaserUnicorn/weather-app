@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 
+import 'bloc/weather_bloc.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -22,7 +24,10 @@ class MyApp extends StatelessWidget {
           future: determinePosition(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return const HomeScreen();
+              return BlocProvider(
+                create: (context) => WeatherBloc(),
+                child: const HomeScreen(),
+              );
             } else {
               return const Scaffold(
                   body: Center(child: CircularProgressIndicator()));
