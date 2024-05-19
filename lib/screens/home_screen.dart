@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/widgets/background_widget.dart';
 import 'package:weather_app/widgets/main_weather_widget.dart';
+
+import '../bloc/weather_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,6 +29,12 @@ class HomeScreen extends StatelessWidget {
             MainWeatherWidget(),
           ],
         ),
+      ),
+      floatingActionButton: IconButton(
+        onPressed: () {
+          context.read<WeatherBloc>().add(GetWeather());
+        },
+        icon: const Icon(Icons.refresh),
       ),
     );
   }

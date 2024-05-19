@@ -20,10 +20,19 @@ class MainWeatherWidget extends StatelessWidget {
                 children: [
                   const FittedBox(
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0),
                       child: BoxedIcon(
                         WeatherIcons.day_cloudy,
                       ),
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      '${state.position.latitude}, ${state.position.longitude}',
+                      style: const TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
                     ),
                   ),
                   Center(
@@ -32,7 +41,7 @@ class MainWeatherWidget extends StatelessWidget {
                       style: const TextStyle(
                           fontSize: 40,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                          color: Colors.black),
                     ),
                   ),
                   Center(
@@ -41,7 +50,7 @@ class MainWeatherWidget extends StatelessWidget {
                     style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: Colors.black),
                   )),
                 ]);
           } else {
