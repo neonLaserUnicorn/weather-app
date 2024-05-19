@@ -13,7 +13,7 @@ class BackgroundWidget extends StatelessWidget {
     return Stack(
       children: [
         Align(
-          alignment: const AlignmentDirectional(3, -0.3),
+          alignment: const AlignmentDirectional(2, -0.3),
           child: Container(
             width: 300,
             height: 300,
@@ -24,7 +24,7 @@ class BackgroundWidget extends StatelessWidget {
           ),
         ),
         Align(
-          alignment: const AlignmentDirectional(-3, -0.3),
+          alignment: const AlignmentDirectional(-2, -0.3),
           child: Container(
             width: 300,
             height: 300,
@@ -35,17 +35,17 @@ class BackgroundWidget extends StatelessWidget {
           ),
         ),
         Align(
-          alignment: const AlignmentDirectional(0, -1.2),
+          alignment: const AlignmentDirectional(0, -1),
           child: Container(
-            width: 600,
-            height: 300,
+            width: 400,
+            height: 200,
             decoration: BoxDecoration(
               color: secondaryColor,
             ),
           ),
         ),
         BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+            filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
             child: Container(
               color: Colors.transparent,
             ))
